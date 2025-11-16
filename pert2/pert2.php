@@ -76,126 +76,150 @@
 // echo "nilai paling tinggi adalah : " .max($nilai) ."\n";
 // echo "nilai paling kecil adalah : " .min($nilai) ."\n";
 
-$dataMahasiswa = [];
+// $dataMahasiswa = [];
 
 function ketik($pesan) {
     echo $pesan;
     return trim(fgets(STDIN));
 }
 
-while (true) {
-    echo "\n=== MENU CRUD MAHASISWA ===\n";
-    echo "1. Tambah Data (Create)\n";
-    echo "2. Lihat Data (Read)\n";
-    echo "3. Ubah Data (Update)\n";
-    echo "4. Hapus Data (Delete)\n";
-    echo "5. Keluar\n";
-    echo "Pilih menu: ";
+// while (true) {
+//     echo "\n=== MENU CRUD MAHASISWA ===\n";
+//     echo "1. Tambah Data (Create)\n";
+//     echo "2. Lihat Data (Read)\n";
+//     echo "3. Ubah Data (Update)\n";
+//     echo "4. Hapus Data (Delete)\n";
+//     echo "5. Keluar\n";
+//     echo "Pilih menu: ";
 
-    $pilihan = trim(fgets(STDIN));
+//     $pilihan = trim(fgets(STDIN));
 
-    // ============================
-    // CREATE
-    // ============================
-    switch ($pilihan) {
-        case 1:
-        $nama = ketik("Masukkan nama mahasiswa: ");
-        $nilai = ketik("Masukkan nilai mahasiswa: ");
+//     // ============================
+//     // CREATE
+//     // ============================
+//     switch ($pilihan) {
+//         case 1:
+//         $nama = ketik("Masukkan nama mahasiswa: ");
+//         $nilai = ketik("Masukkan nilai mahasiswa: ");
 
-        $dataMahasiswa[] = [
-            "nama" => $nama,
-            "nilai" => $nilai
-        ];
+//         $dataMahasiswa[] = [
+//             "nama" => $nama,
+//             "nilai" => $nilai
+//         ];
 
-        echo "Data berhasil ditambahkan!\n";
-    break;
-
-
-    // READ
-     case 2: 
-        echo "\n=== DATA MAHASISWA ===\n";
-
-        if (count($dataMahasiswa) == 0) {
-            echo "Data masih kosong!\n";
-        } else {
-            for ($i = 0; $i < count($dataMahasiswa); $i++) {
-                echo "data ke- ". ($i + 1) . " Nama: " . $dataMahasiswa[$i]["nama"]. ", Nilai: " . $dataMahasiswa[$i]["nilai"] . "\n";
-            }
-            // foreach ($dataMahasiswa as $i => $mhs) {
-            //     echo "data ke- "($i + 1) . ". Nama: " . $mhs["nama"] . 
-            //          " | Nilai: " . $mhs["nilai"] . "\n";
-            // }
-        }
-    break;
+//         echo "Data berhasil ditambahkan!\n";
+//     break;
 
 
-    // UPDATE
+//     // READ
+//      case 2: 
+//         echo "\n=== DATA MAHASISWA ===\n";
 
-    case 3:
-        if (count($dataMahasiswa) == 0) {
-            echo "Tidak ada data untuk diubah!\n";
-            continue;
-        }
+//         if (count($dataMahasiswa) == 0) {
+//             echo "Data masih kosong!\n";
+//         } else {
+//             for ($i = 0; $i < count($dataMahasiswa); $i++) {
+//                 echo "data ke- ". ($i + 1) . " Nama: " . $dataMahasiswa[$i]["nama"]. ", Nilai: " . $dataMahasiswa[$i]["nilai"] . "\n";
+//             }
+//             // foreach ($dataMahasiswa as $i => $mhs) {
+//             //     echo "data ke- "($i + 1) . ". Nama: " . $mhs["nama"] . 
+//             //          " | Nilai: " . $mhs["nilai"] . "\n";
+//             // }
+//         }
+//     break;
 
-        $index = ketik("Pilih nomor data yang ingin diubah: ") - 1;
 
-        if (!isset($dataMahasiswa[$index])) {
-            echo "Nomor tidak valid!\n";
-            continue;
-        }
+//     // UPDATE
 
-        $namaBaru = ketik("Masukkan nama baru: ");
-        $nilaiBaru = ketik("Masukkan nilai baru: ");
+//     case 3:
+//         if (count($dataMahasiswa) == 0) {
+//             echo "Tidak ada data untuk diubah!\n";
+//             continue;
+//         }
 
-        $dataMahasiswa[$index]["nama"] = $namaBaru;
-        $dataMahasiswa[$index]["n00ilai"] = $nilaiBaru;
+//         $index = ketik("Pilih nomor data yang ingin diubah: ") - 1;
 
-        echo "Data berhasil diupdate!\n";
-    break;
+//         if (!isset($dataMahasiswa[$index])) {
+//             echo "Nomor tidak valid!\n";
+//             continue;
+//         }
+
+//         $namaBaru = ketik("Masukkan nama baru: ");
+//         $nilaiBaru = ketik("Masukkan nilai baru: ");
+
+//         $dataMahasiswa[$index]["nama"] = $namaBaru;
+//         $dataMahasiswa[$index]["n00ilai"] = $nilaiBaru;
+
+//         echo "Data berhasil diupdate!\n";
+//     break;
 
  
-    // DELETE
+//     // DELETE
 
-    case 4:
-        if (count($dataMahasiswa) == 0) {
-            echo "Tidak ada data untuk dihapus!\n";
-            continue;
-        }
+//     case 4:
+//         if (count($dataMahasiswa) == 0) {
+//             echo "Tidak ada data untuk dihapus!\n";
+//             continue;
+//         }
 
-        $index = ketik("Pilih nomor data yang ingin dihapus: ") - 1;
+//         $index = ketik("Pilih nomor data yang ingin dihapus: ") - 1;
 
-        if (!isset($dataMahasiswa[$index])) {
-            echo "Nomor tidak valid!\n";
-            continue;
-        }
+//         if (!isset($dataMahasiswa[$index])) {
+//             echo "Nomor tidak valid!\n";
+//             continue;
+//         }
 
-        array_splice($dataMahasiswa, $index, 1);
+//         array_splice($dataMahasiswa, $index, 1);
 
-        echo "Data berhasil dihapus!\n";
-    break;
+//         echo "Data berhasil dihapus!\n";
+//     break;
 
 
-    // EXIT
+//     // EXIT
 
-    case 5:
-        echo "Program selesai!\n";
-    exit;
+//     case 5:
+//         echo "Program selesai!\n";
+//     exit;
     
 
 
-    // INPUT SALAH
+//     // INPUT SALAH
 
-    default:
-        echo "Pilihan tidak valid!\n";
-    break;
+//     default:
+//         echo "Pilihan tidak valid!\n";
+//     break;
+// }
+
+// }
+
+$data = [];
+
+while (true) {
+    echo "\n=== MENU DATA MAHASISWA ===\n";
+    echo "1. Input Data Mahasiswa\n";
+    echo "2. Lihat Data Mahasiswa\n";
+    echo "3. Keluar dari program\n";
+    $menu = ketik("Pilih menu : ");
+    switch ($menu) {
+        case 1:
+            $nama = ketik("masukan nama kamu: ");
+$umur = ketik("masukan umur kamu: ");
+$universitas = ketik("masukan nama universitas kamu: ");
+
+$data = [
+    "nama" => $nama,
+    "umur" => $umur,
+    "universitas" => $universitas
+    ];
+            echo "Data berhasil ditambahkan!\n";
+    }
+ if (count($data) == 0) {
+            echo "Data masih kosong!\n";
+        } else {
+            for ($i = 0; $i < count($data); $i++) {
+                echo "data ke- ".  ($i + 1) . " Nama: " . $data[$i]["nama"]. ", Umur: " . $data[$i]["umur"] . ", Universitas :" . $data[$i]["universitas"] . "\n";
+            }
+
+        }
 }
-
-}
-
-
-
-
-
-
-
 ?>
